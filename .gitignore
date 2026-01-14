@@ -1,0 +1,38 @@
+# Environment files
+.env
+config.env
+*.env
+!*.env.example
+
+# Documentation (if you want to exclude them)
+PLAN.md
+README_SETUP.md
+SETUP_GUIDE.md
+
+# Solana keypair (NEVER commit private keys!)
+*.json
+!package.json
+!tsconfig.json
+!tailwind.config.js
+**/*-keypair.json
+
+# Node modules
+node_modules/
+
+# Rust build artifacts
+target/
+**/*.rs.bk
+
+# Anchor
+.anchor/
+test-ledger/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
