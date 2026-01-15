@@ -107,13 +107,21 @@ export function useDocumentProgram() {
 
   /**
    * Sign a message (hash) with the wallet
+   * Creates a properly formatted message for Phantom to sign
    */
-  const signMessage = async (message: Uint8Array): Promise<Uint8Array> => {
-    if (!wallet.signMessage) {
-      throw new Error('Wallet does not support message signing');
+  const signMessage = async (hash: Uint8Array): Promise<Uint8Array> => {
+    if (!wallet.signMessage || !wallet.publicKey) {
+      throw new Error('Wallet not connected or does not support message signing');
     }
 
     try {
+      // Create a message with a prefix to make it clear what we're signing
+      const prefix = Buffer.from('Document Verifier: Sign this hash to store on blockchain\n\nHash: ');
+      const message = new Uint8Array(prefix.length + hash.length);
+      message.set(prefix, 0);
+      message.set(hash, prefix.length);
+
+      // Sign the message
       const signature = await wallet.signMessage(message);
       return signature;
     } catch (error) {
