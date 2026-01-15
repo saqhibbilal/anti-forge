@@ -93,7 +93,7 @@ export function useDocumentProgram() {
         program.programId
       );
 
-      // Fetch the account data
+      // Fetch the account data (Anchor converts snake_case to camelCase)
       const account = await program.account.documentAccount.fetch(documentPda);
       
       return account as DocumentAccount;
