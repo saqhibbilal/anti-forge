@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useDocumentProgram, DocumentAccount } from '../hooks/useDocumentProgram';
+import { useDocumentProgram } from '../hooks/useDocumentProgram';
+import type { DocumentAccount } from '../hooks/useDocumentProgram';
 import { PublicKey } from '@solana/web3.js';
 import { hexToUint8Array, uint8ArrayToHex } from '../utils/hashing';
 

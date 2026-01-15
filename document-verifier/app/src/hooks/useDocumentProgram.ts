@@ -3,7 +3,6 @@ import { Program, AnchorProvider, web3, BN } from '@coral-xyz/anchor';
 import { PublicKey } from '@solana/web3.js';
 import { useMemo } from 'react';
 import IDL from '../idl/document_verifier.json';
-import { PROGRAM_ID } from '../utils/solana';
 
 export interface DocumentAccount {
   hash: number[];
@@ -25,7 +24,7 @@ export function useDocumentProgram() {
       AnchorProvider.defaultOptions()
     );
 
-    return new Program(IDL as any, PROGRAM_ID, provider);
+    return new Program(IDL as any, provider);
   }, [connection, wallet]);
 
   /**
@@ -41,13 +40,14 @@ export function useDocumentProgram() {
 
     try {
       // Find PDA for the document account
+      const programId = new PublicKey(IDL.address);
       const [documentPda] = PublicKey.findProgramAddressSync(
         [
           Buffer.from('document'),
           wallet.publicKey.toBuffer(),
           hash,
         ],
-        program.programId
+        programId
       );
 
       // Convert Uint8Array to number[] for Anchor
@@ -84,17 +84,18 @@ export function useDocumentProgram() {
 
     try {
       // Find PDA for the document account
+      const programId = new PublicKey(IDL.address);
       const [documentPda] = PublicKey.findProgramAddressSync(
         [
           Buffer.from('document'),
           owner.toBuffer(),
           hash,
         ],
-        program.programId
+        programId
       );
 
       // Fetch the account data (Anchor converts snake_case to camelCase)
-      const account = await program.account.documentAccount.fetch(documentPda);
+      const account = await (program.account as any).documentAccount.fetch(documentPda);
       
       return account as DocumentAccount;
     } catch (error) {
