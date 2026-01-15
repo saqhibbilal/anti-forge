@@ -107,7 +107,7 @@ export function useDocumentProgram() {
 
   /**
    * Sign a message (hash) with the wallet
-   * Creates a properly formatted message for Phantom to sign
+   * Creates a properly formatted text message for Phantom to sign
    */
   const signMessage = async (hash: Uint8Array): Promise<Uint8Array> => {
     if (!wallet.signMessage || !wallet.publicKey) {
@@ -115,11 +115,17 @@ export function useDocumentProgram() {
     }
 
     try {
-      // Create a message with a prefix to make it clear what we're signing
-      const prefix = Buffer.from('Document Verifier: Sign this hash to store on blockchain\n\nHash: ');
-      const message = new Uint8Array(prefix.length + hash.length);
-      message.set(prefix, 0);
-      message.set(hash, prefix.length);
+      // Convert hash to hex string for display
+      const hashHex = Array.from(hash)
+        .map(b => b.toString(16).padStart(2, '0'))
+        .join('');
+
+      // Create a clear text message (not bytes that look like a transaction)
+      const messageText = `Document Verifier\n\nSign this hash to store on blockchain:\n${hashHex}`;
+      
+      // Convert to Uint8Array using TextEncoder
+      const encoder = new TextEncoder();
+      const message = encoder.encode(messageText);
 
       // Sign the message
       const signature = await wallet.signMessage(message);

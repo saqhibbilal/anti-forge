@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   define: {
     'global': 'globalThis',
+    'process.env': {},
   },
   resolve: {
     alias: {
@@ -18,5 +19,6 @@ export default defineConfig({
         global: 'globalThis',
       },
     },
+    include: ['buffer'],
   },
 })
