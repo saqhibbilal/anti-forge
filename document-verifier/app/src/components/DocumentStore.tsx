@@ -43,7 +43,7 @@ export function DocumentStore({ hash, hashHex }: DocumentStoreProps) {
   }
 
   return (
-    <div className="w-full rounded-2xl p-8 shadow-2xl border" style={{ background: '#1e2d3a', borderColor: '#2d4150' }}>
+    <div className="w-full rounded-2xl p-8 shadow-2xl border" style={{ background: '#2a002a', borderColor: '#3a003a' }}>
       <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#4f9cf9', color: '#ffffff' }}>
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,12 +55,12 @@ export function DocumentStore({ hash, hashHex }: DocumentStoreProps) {
         </h2>
       </div>
 
-      <div className="mb-6 p-5 rounded-xl border" style={{ background: '#192830', borderColor: '#2d4150' }}>
+      <div className="mb-6 p-5 rounded-xl border" style={{ background: '#1A001A', borderColor: '#3a003a' }}>
         <div className="flex items-start gap-3">
           <svg className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#4f9cf9' }} fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
           </svg>
-          <p className="text-sm leading-relaxed" style={{ color: '#a0aec0' }}>
+          <p className="text-sm leading-relaxed" style={{ color: '#d0a0d0' }}>
             This will sign the document hash with your wallet and store it permanently on the Solana blockchain.
             <span className="block mt-2 font-semibold" style={{ color: '#ffffff' }}>
               Your original document stays private - only the hash is stored.
@@ -74,7 +74,7 @@ export function DocumentStore({ hash, hashHex }: DocumentStoreProps) {
         disabled={isStoring || !isConnected}
         className="w-full font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-lg"
         style={{
-          background: isStoring || !isConnected ? '#2d4150' : '#4f9cf9',
+          background: isStoring || !isConnected ? '#3a003a' : '#4f9cf9',
           color: '#ffffff',
         }}
         onMouseEnter={(e) => {
@@ -128,8 +128,8 @@ export function DocumentStore({ hash, hashHex }: DocumentStoreProps) {
             </div>
           </div>
           
-          <div className="p-4 rounded-lg mb-4" style={{ background: '#192830' }}>
-            <p className="text-xs font-semibold mb-2" style={{ color: '#a0aec0' }}>Transaction Signature:</p>
+          <div className="p-4 rounded-lg mb-4" style={{ background: '#1A001A' }}>
+            <p className="text-xs font-semibold mb-2" style={{ color: '#d0a0d0' }}>Transaction Signature:</p>
             <p className="font-mono text-xs break-all leading-relaxed" style={{ color: '#ffffff' }}>
               {txSignature}
             </p>

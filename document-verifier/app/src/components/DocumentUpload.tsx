@@ -36,7 +36,7 @@ export function DocumentUpload({ onHashGenerated }: DocumentUploadProps) {
   };
 
   return (
-    <div className="w-full rounded-2xl p-8 shadow-2xl border" style={{ background: '#1e2d3a', borderColor: '#2d4150' }}>
+    <div className="w-full rounded-2xl p-8 shadow-2xl border" style={{ background: '#2a002a', borderColor: '#3a003a' }}>
       <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#4f9cf9', color: '#ffffff' }}>
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,11 +49,11 @@ export function DocumentUpload({ onHashGenerated }: DocumentUploadProps) {
       </div>
       
       <div className="mb-6">
-        <label className="block text-sm font-semibold mb-3" style={{ color: '#a0aec0' }}>
+        <label className="block text-sm font-semibold mb-3" style={{ color: '#d0a0d0' }}>
           Select a document file
         </label>
         <div className="relative">
-          <div className="border-2 border-dashed rounded-xl p-8 text-center transition-all hover:border-[#4f9cf9]" style={{ borderColor: '#2d4150', background: '#192830' }}>
+          <div className="border-2 border-dashed rounded-xl p-8 text-center transition-all hover:border-[#4f9cf9]" style={{ borderColor: '#3a003a', background: '#1A001A' }}>
             <input
               type="file"
               onChange={handleFileChange}
@@ -65,12 +65,12 @@ export function DocumentUpload({ onHashGenerated }: DocumentUploadProps) {
                 file:cursor-pointer file:transition-all
                 hover:file:shadow-lg"
               style={{
-                color: '#a0aec0',
+                color: '#d0a0d0',
               }}
             />
             {!file && (
               <div className="mt-4">
-                <p className="text-sm" style={{ color: '#6b7280' }}>
+                <p className="text-sm" style={{ color: '#b080b0' }}>
                   Click to browse or drag and drop
                 </p>
               </div>
@@ -98,7 +98,7 @@ export function DocumentUpload({ onHashGenerated }: DocumentUploadProps) {
       )}
 
       {hash && (
-        <div className="mt-6 p-6 rounded-xl border" style={{ background: '#192830', borderColor: '#2d4150' }}>
+        <div className="mt-6 p-6 rounded-xl border" style={{ background: '#1A001A', borderColor: '#3a003a' }}>
           <div className="flex items-center gap-2 mb-3">
             <svg className="w-5 h-5" style={{ color: '#10b981' }} fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -113,12 +113,12 @@ export function DocumentUpload({ onHashGenerated }: DocumentUploadProps) {
             </p>
           </div>
           {file && (
-            <div className="mt-4 pt-4 border-t flex items-center justify-between text-sm" style={{ borderColor: '#2d4150' }}>
+            <div className="mt-4 pt-4 border-t flex items-center justify-between text-sm" style={{ borderColor: '#3a003a' }}>
               <div>
-                <span className="font-semibold" style={{ color: '#a0aec0' }}>File:</span>
+                <span className="font-semibold" style={{ color: '#d0a0d0' }}>File:</span>
                 <span className="ml-2 font-mono" style={{ color: '#ffffff' }}>{file.name}</span>
               </div>
-              <div className="px-3 py-1 rounded-lg" style={{ background: '#2a3f4f', color: '#a0aec0' }}>
+              <div className="px-3 py-1 rounded-lg" style={{ background: '#2a002a', color: '#d0a0d0' }}>
                 {(file.size / 1024).toFixed(2)} KB
               </div>
             </div>

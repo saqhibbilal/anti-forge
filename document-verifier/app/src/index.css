@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --primary-dark: #192830;
-  --primary-light: #2a3f4f;
+  --primary-dark: #1A001A;
+  --primary-light: #2a002a;
   --accent: #4f9cf9;
   --accent-hover: #3d7dd6;
   --success: #10b981;
   --error: #ef4444;
   --text-primary: #ffffff;
-  --text-secondary: #a0aec0;
-  --card-bg: #1e2d3a;
-  --border: #2d4150;
+  --text-secondary: #d0a0d0;
+  --card-bg: #2a002a;
+  --border: #3a003a;
 }
 
 * {
@@ -39,7 +39,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--border);
+  background: #3a003a;
 }
 
 /* Wallet Adapter Button Styling */

@@ -14,16 +14,16 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #192830 0%, #1e2d3a 100%)' }}>
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #1A001A 0%, #2a002a 100%)' }}>
       <div className="container mx-auto px-4 py-8 max-w-5xl">
         {/* Header */}
         <header className="mb-12">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
             <div>
               <h1 className="text-5xl font-bold mb-2" style={{ color: '#ffffff' }}>
-                Document Verifier
+                Anti Forge
               </h1>
-              <p className="text-lg" style={{ color: '#a0aec0' }}>
+              <p className="text-lg" style={{ color: '#d0a0d0' }}>
                 Securely store and verify document hashes on the Solana blockchain
               </p>
             </div>
@@ -46,7 +46,7 @@ function App() {
         </main>
 
         {/* Footer */}
-        <footer className="mt-16 pt-8 border-t text-center text-sm" style={{ borderColor: '#2d4150', color: '#6b7280' }}>
+        <footer className="mt-16 pt-8 border-t text-center text-sm" style={{ borderColor: '#3a003a', color: '#b080b0' }}>
           <p>Built on Solana Devnet • Document hashes only, original files stay private</p>
         </footer>
       </div>
