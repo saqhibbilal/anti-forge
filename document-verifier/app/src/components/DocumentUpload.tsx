@@ -36,55 +36,92 @@ export function DocumentUpload({ onHashGenerated }: DocumentUploadProps) {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-        Upload Document
-      </h2>
+    <div className="w-full rounded-2xl p-8 shadow-2xl border" style={{ background: '#1e2d3a', borderColor: '#2d4150' }}>
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#4f9cf9', color: '#ffffff' }}>
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+          </svg>
+        </div>
+        <h2 className="text-3xl font-bold" style={{ color: '#ffffff' }}>
+          Upload Document
+        </h2>
+      </div>
       
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      <div className="mb-6">
+        <label className="block text-sm font-semibold mb-3" style={{ color: '#a0aec0' }}>
           Select a document file
         </label>
-        <input
-          type="file"
-          onChange={handleFileChange}
-          disabled={isHashing}
-          className="block w-full text-sm text-gray-500 dark:text-gray-400
-            file:mr-4 file:py-2 file:px-4
-            file:rounded-lg file:border-0
-            file:text-sm file:font-semibold
-            file:bg-purple-50 file:text-purple-700
-            hover:file:bg-purple-100
-            dark:file:bg-purple-900 dark:file:text-purple-300
-            cursor-pointer disabled:opacity-50"
-        />
+        <div className="relative">
+          <div className="border-2 border-dashed rounded-xl p-8 text-center transition-all hover:border-[#4f9cf9]" style={{ borderColor: '#2d4150', background: '#192830' }}>
+            <input
+              type="file"
+              onChange={handleFileChange}
+              disabled={isHashing}
+              className="block w-full text-sm cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed
+                file:mr-4 file:py-3 file:px-6
+                file:rounded-xl file:border-0
+                file:text-sm file:font-bold
+                file:cursor-pointer file:transition-all
+                hover:file:shadow-lg"
+              style={{
+                color: '#a0aec0',
+              }}
+            />
+            {!file && (
+              <div className="mt-4">
+                <p className="text-sm" style={{ color: '#6b7280' }}>
+                  Click to browse or drag and drop
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
       {isHashing && (
-        <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
-          Hashing document...
+        <div className="mb-4 flex items-center gap-2 text-sm" style={{ color: '#4f9cf9' }}>
+          <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
+          <span>Hashing document securely...</span>
         </div>
       )}
 
       {error && (
-        <div className="mb-4 p-3 bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-300 rounded">
-          {error}
+        <div className="mb-4 p-4 rounded-xl border" style={{ background: '#2a1f1f', borderColor: '#ef4444', color: '#fca5a5' }}>
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+            </svg>
+            <span className="font-semibold">{error}</span>
+          </div>
         </div>
       )}
 
       {hash && (
-        <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-          <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Document Hash (SHA-256):
-          </p>
-          <p className="font-mono text-xs text-gray-900 dark:text-gray-100 break-all">
-            {hash}
-          </p>
-          {file && (
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-              File: <span className="font-medium">{file.name}</span> (
-              {(file.size / 1024).toFixed(2)} KB)
+        <div className="mt-6 p-6 rounded-xl border" style={{ background: '#192830', borderColor: '#2d4150' }}>
+          <div className="flex items-center gap-2 mb-3">
+            <svg className="w-5 h-5" style={{ color: '#10b981' }} fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            <p className="text-sm font-semibold" style={{ color: '#10b981' }}>
+              Document Hash Generated (SHA-256)
             </p>
+          </div>
+          <div className="p-4 rounded-lg" style={{ background: '#192830' }}>
+            <p className="font-mono text-xs break-all leading-relaxed" style={{ color: '#ffffff' }}>
+              {hash}
+            </p>
+          </div>
+          {file && (
+            <div className="mt-4 pt-4 border-t flex items-center justify-between text-sm" style={{ borderColor: '#2d4150' }}>
+              <div>
+                <span className="font-semibold" style={{ color: '#a0aec0' }}>File:</span>
+                <span className="ml-2 font-mono" style={{ color: '#ffffff' }}>{file.name}</span>
+              </div>
+              <div className="px-3 py-1 rounded-lg" style={{ background: '#2a3f4f', color: '#a0aec0' }}>
+                {(file.size / 1024).toFixed(2)} KB
+              </div>
+            </div>
           )}
         </div>
       )}

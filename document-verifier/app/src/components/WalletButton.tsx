@@ -5,12 +5,14 @@ export function WalletButton() {
   const { connected, publicKey } = useWallet();
 
   return (
-    <div className="flex items-center gap-4">
-      <WalletMultiButton className="!bg-purple-600 hover:!bg-purple-700 !rounded-lg !px-4 !py-2 !text-white !font-medium" />
+    <div className="flex flex-col items-end gap-2">
+      <WalletMultiButton 
+        className="!bg-[#4f9cf9] hover:!bg-[#3d7dd6] !rounded-xl !px-6 !py-3 !text-white !font-bold !text-sm !transition-all !shadow-lg hover:!shadow-xl" 
+      />
       {connected && publicKey && (
-        <div className="text-sm text-gray-600 dark:text-gray-400">
-          <span className="font-medium">Connected:</span>{' '}
-          <span className="font-mono text-xs">
+        <div className="text-xs px-3 py-1.5 rounded-lg" style={{ background: '#1e2d3a', color: '#a0aec0' }}>
+          <span className="font-semibold" style={{ color: '#4f9cf9' }}>Connected:</span>{' '}
+          <span className="font-mono">
             {publicKey.toBase58().slice(0, 4)}...{publicKey.toBase58().slice(-4)}
           </span>
         </div>

@@ -1,1 +1,107 @@
 @import "tailwindcss";
+
+:root {
+  --primary-dark: #192830;
+  --primary-light: #2a3f4f;
+  --accent: #4f9cf9;
+  --accent-hover: #3d7dd6;
+  --success: #10b981;
+  --error: #ef4444;
+  --text-primary: #ffffff;
+  --text-secondary: #a0aec0;
+  --card-bg: #1e2d3a;
+  --border: #2d4150;
+}
+
+* {
+  font-family: 'Quantico', monospace;
+}
+
+body {
+  background: var(--primary-dark);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border);
+}
+
+/* Wallet Adapter Button Styling */
+.wallet-adapter-button {
+  font-family: 'Quantico', monospace !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+}
+
+.wallet-adapter-button-trigger {
+  background: #4f9cf9 !important;
+}
+
+.wallet-adapter-button-trigger:hover {
+  background: #3d7dd6 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(79, 156, 249, 0.3) !important;
+}
+
+.wallet-adapter-dropdown-list {
+  background: #1e2d3a !important;
+  border: 1px solid #2d4150 !important;
+  border-radius: 12px !important;
+}
+
+.wallet-adapter-dropdown-list-item {
+  color: #ffffff !important;
+  font-family: 'Quantico', monospace !important;
+}
+
+.wallet-adapter-dropdown-list-item:hover {
+  background: #2a3f4f !important;
+}
+
+/* File input styling */
+input[type="file"]::file-selector-button {
+  background: #4f9cf9 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 12px 24px !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-family: 'Quantico', monospace !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #3d7dd6 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 156, 249, 0.3) !important;
+}
+
+/* Input placeholder styling */
+input::placeholder {
+  color: #6b7280 !important;
+  opacity: 0.7 !important;
+}
+
+/* Selection styling */
+::selection {
+  background: #4f9cf9;
+  color: #ffffff;
+}

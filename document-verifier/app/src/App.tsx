@@ -14,23 +14,25 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #192830 0%, #1e2d3a 100%)' }}>
+      <div className="container mx-auto px-4 py-8 max-w-5xl">
         {/* Header */}
-        <header className="mb-8">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-              Document Verifier
-            </h1>
+        <header className="mb-12">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+            <div>
+              <h1 className="text-5xl font-bold mb-2" style={{ color: '#ffffff' }}>
+                Document Verifier
+              </h1>
+              <p className="text-lg" style={{ color: '#a0aec0' }}>
+                Securely store and verify document hashes on the Solana blockchain
+              </p>
+            </div>
             <WalletButton />
           </div>
-          <p className="text-gray-600 dark:text-gray-400">
-            Securely store and verify document hashes on the Solana blockchain
-          </p>
         </header>
 
         {/* Main Content */}
-        <main className="space-y-6">
+        <main className="space-y-8">
           {/* Upload Section */}
           <DocumentUpload onHashGenerated={handleHashGenerated} />
 
@@ -44,7 +46,7 @@ function App() {
         </main>
 
         {/* Footer */}
-        <footer className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400">
+        <footer className="mt-16 pt-8 border-t text-center text-sm" style={{ borderColor: '#2d4150', color: '#6b7280' }}>
           <p>Built on Solana Devnet • Document hashes only, original files stay private</p>
         </footer>
       </div>
